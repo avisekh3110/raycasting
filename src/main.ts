@@ -5,10 +5,12 @@ import draw from "./draw";
 
 function sketch(p5: P5) {
   p5.setup = () => {
-    setup(p5);
+    //this p5's setup function.
+    setup(p5); //this is my setup function from ./setup
   };
   p5.draw = () => {
-    draw(p5);
+    //this p5's draw function.
+    draw(p5); //this is my setup function from ./setup
   };
 }
 
