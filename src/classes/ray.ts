@@ -40,7 +40,7 @@ export default class Ray {
       // this.p5.point(element.getline().start);
       // this.p5.point(element.getline().end);
       this.p5.point(this.getline().end);
-      const check = intersection(element.getline(), this.getline(), this.p5);
+      const check = intersection(element.getline(), this.getline());
       if (check != false) {
         const currentDistance = check.copy().sub(this.player.pos).mag();
         if (currentDistance < distance) {
