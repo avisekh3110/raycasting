@@ -5,7 +5,7 @@ export interface Line {
   end: Vector;
 }
 
-export default function intersection(wallLine: Line, rayLine: Line, p5: P5) {
+export default function intersection(wallLine: Line, rayLine: Line) {
   const x1 = wallLine.start.x;
   const y1 = wallLine.start.y;
   const x2 = wallLine.end.x;
