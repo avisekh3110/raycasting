@@ -1,5 +1,6 @@
 import P5, { Vector } from "p5";
 import Ray from "./ray";
+import World from "./world";
 
 export default class Player {
   private p5: P5;
@@ -7,8 +8,10 @@ export default class Player {
   public size: number;
   public color: number;
   private rays: Ray[];
+  private world: World;
 
-  constructor(p5: P5) {
+  constructor(p5: P5, world: World) {
+    this.world = world;
     this.p5 = p5;
     this.pos = this.p5.createVector(0, 0);
     this.size = 20;
@@ -16,7 +19,11 @@ export default class Player {
     this.rays = [];
     for (let i = 0; i < 360; i += 5) {
       const direction = Vector.fromAngle((i * this.p5.PI) / 180);
-      const ray = new Ray(p5, { player: this, direction: direction });
+      const ray = new Ray(
+        p5,
+        { player: this, direction: direction },
+        this.world
+      );
       this.rays.push(ray);
     }
   }

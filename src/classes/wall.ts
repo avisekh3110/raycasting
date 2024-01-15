@@ -1,4 +1,5 @@
 import P5, { Vector } from "p5";
+import { Line } from "../helper/intersection";
 
 export interface wallOption {
   start: Vector;
@@ -41,5 +42,11 @@ export default class Wall {
     this.p5.stroke(255);
     this.p5.strokeWeight(2);
     this.p5.line(this.start.x, this.start.y, this.end.x, this.end.y);
+  }
+  getline(): Line {
+    return {
+      start: this.start,
+      end: this.end,
+    };
   }
 }

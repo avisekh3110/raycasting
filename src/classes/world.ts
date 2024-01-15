@@ -11,7 +11,7 @@ export default class World {
   constructor(p5: P5) {
     this.p5 = p5;
     this.isPaused = true;
-    this.player = new Player(p5);
+    this.player = new Player(p5, this);
 
     this.walls = [...BoundaryWall(p5)];
     for (let i = 0; i < 5; i++) {
