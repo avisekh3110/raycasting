@@ -29,8 +29,8 @@ export function BoundaryWall(p5: P5) {
 
 export default class Wall {
   private p5: P5;
-  private start: Vector;
-  private end: Vector;
+  public start: Vector;
+  public end: Vector;
 
   constructor(p5: P5, { start, end }: wallOption) {
     this.p5 = p5;

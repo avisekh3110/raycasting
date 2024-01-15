@@ -6,7 +6,7 @@ export default class World {
   private p5: P5;
   public isPaused: boolean;
   private player: Player;
-  private walls: Wall[];
+  public walls: Wall[];
 
   constructor(p5: P5) {
     this.p5 = p5;
@@ -14,6 +14,7 @@ export default class World {
     this.player = new Player(p5, this);
 
     this.walls = [...BoundaryWall(p5)];
+    // this.walls = [];
     for (let i = 0; i < 5; i++) {
       const newWall = new Wall(p5, {
         start: this.p5.createVector(
@@ -37,10 +38,13 @@ export default class World {
     this.isPaused = true;
   }
   show() {
-    this.player.show();
     this.player.move();
+    this.player.show();
     this.walls.forEach((element) => {
       element.show();
     });
+  }
+  checkIntersection() {
+    this.player.checkAll();
   }
 }

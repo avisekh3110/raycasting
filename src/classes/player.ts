@@ -17,7 +17,7 @@ export default class Player {
     this.size = 20;
     this.color = 255;
     this.rays = [];
-    for (let i = 0; i < 360; i += 5) {
+    for (let i = 0; i < 360; i += 3) {
       const direction = Vector.fromAngle((i * this.p5.PI) / 180);
       const ray = new Ray(
         p5,
@@ -36,5 +36,20 @@ export default class Player {
   }
   move() {
     this.pos = this.p5.createVector(this.p5.mouseX, this.p5.mouseY);
+  }
+  checkAll() {
+    this.rays.forEach((element) => {
+      const goodPoint = element.checkIntersection();
+
+      if (goodPoint) {
+        this.p5.stroke(255);
+        this.p5.fill(255);
+        this.p5.strokeWeight(1);
+        this.p5.point(goodPoint);
+
+        this.p5.strokeWeight(1);
+        this.p5.line(this.pos.x, this.pos.y, goodPoint.x, goodPoint.y);
+      }
+    });
   }
 }
