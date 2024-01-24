@@ -15,7 +15,7 @@ export default class World {
 
     this.walls = [...BoundaryWall(p5)];
     // this.walls = [];
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 8; i++) {
       const newWall = new Wall(p5, {
         start: this.p5.createVector(
           this.p5.random(0, this.p5.height),

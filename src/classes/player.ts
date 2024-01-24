@@ -15,7 +15,7 @@ export default class Player {
     this.p5 = p5;
     this.pos = this.p5.createVector(0, 0);
     this.size = 20;
-    this.color = 255;
+    this.color = 0;
     this.rays = [];
     for (let i = 0; i < 360; i += 3) {
       const direction = Vector.fromAngle((i * this.p5.PI) / 180);
